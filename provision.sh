@@ -146,6 +146,12 @@ EOF
 sudo cp /tmp/settings.local.php /vagrant/web/sites/default/settings.local.php >> /vagrant/provision.log 2>&1
 
 echo ">>> Installing Drupal 8."
+cd /vagrant >> /vagrant/provision.log 2>&1
+
+sudo echo $'if (file_exists($app_root . \'/\' . $site_path . \'/settings.local.php\')) {' >> /vagrant/web/sites/default/settings.php
+sudo echo $'  include $app_root . \'/\' . $site_path . \'/settings.local.php\';' >> /vagrant/web/sites/default/settings.php
+sudo echo $'}' >> /vagrant/web/sites/default/settings.php
+
 /vagrant/vendor/bin/drush site:install -y >> /vagrant/provision.log 2>&1
 /vagrant/vendor/bin/drush user:password admin "admin" >> /vagrant/provision.log 2>&1
 /vagrant/vendor/bin/drush en basic_auth entity_reference rest serialization admin_toolbar admin_toolbar_tools paragraphs webapp -y  >> /vagrant/provision.log 2>&1
