@@ -3606,17 +3606,17 @@
         },
         {
             "name": "drupal/webapp_json",
-            "version": "1.0.0-beta2",
+            "version": "1.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://git.drupalcode.org/project/webapp_json.git",
-                "reference": "8.x-1.0-beta2"
+                "reference": "8.x-1.0-beta3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://ftp.drupal.org/files/projects/webapp_json-8.x-1.0-beta2.zip",
-                "reference": "8.x-1.0-beta2",
-                "shasum": "5deeb4bc6f1ac2193df03a9f516b3d7d67ec2c33"
+                "url": "https://ftp.drupal.org/files/projects/webapp_json-8.x-1.0-beta3.zip",
+                "reference": "8.x-1.0-beta3",
+                "shasum": "6220eb2480a528cbcdc5e10dce10e984554a65df"
             },
             "require": {
                 "drupal/core": "~8.0"
@@ -3627,8 +3627,8 @@
                     "dev-1.x": "1.x-dev"
                 },
                 "drupal": {
-                    "version": "8.x-1.0-beta2",
-                    "datestamp": "1573460884",
+                    "version": "8.x-1.0-beta3",
+                    "datestamp": "1574069884",
                     "security-coverage": {
                         "status": "not-covered",
                         "message": "Project has not opted into security advisory coverage!"
