@@ -148,6 +148,7 @@ sudo cp /tmp/settings.local.php /vagrant/web/sites/default/settings.local.php >>
 echo ">>> Installing Drupal 8."
 cd /vagrant >> /vagrant/provision.log 2>&1
 
+sudo chmod a+w /vagrant/web/sites/default/settings.php
 sudo echo $'if (file_exists($app_root . \'/\' . $site_path . \'/settings.local.php\')) {' >> /vagrant/web/sites/default/settings.php
 sudo echo $'  include $app_root . \'/\' . $site_path . \'/settings.local.php\';' >> /vagrant/web/sites/default/settings.php
 sudo echo $'}' >> /vagrant/web/sites/default/settings.php
