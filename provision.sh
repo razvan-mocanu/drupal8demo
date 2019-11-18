@@ -125,7 +125,7 @@ echo ">>> Running composer install"
 cd /vagrant >> /vagrant/provision.log 2>&1
 /usr/local/bin/composer install >> /vagrant/provision.log 2>&1
 
-echo ">>> Setting Drupal 8 database config."
+echo ">>> Setting Drupal 8 config."
 cat > /tmp/settings.local.php <<'EOF'
 <?php
 
@@ -144,6 +144,25 @@ $databases['default']['default'] = array (
 $settings['hash_salt'] = 'iI4fp_WUkb-dByZRobjGH4b4XTzU0qJcFJQ5V_zIkr_BzXPg1R2J1Zk4TiHJ_89j7iVSH_oHYQ';
 EOF
 sudo cp /tmp/settings.local.php /vagrant/web/sites/default/settings.local.php >> /vagrant/provision.log 2>&1
+
+cat > /tmp/services.yml <<'EOF'
+parameters:
+  cors.config:
+    enabled: true
+    # Specify allowed headers, like 'x-allowed-header'.
+    allowedHeaders: []
+    # Specify allowed request methods, specify ['*'] to allow all possible ones.
+    allowedMethods: []
+    # Configure requests allowed from specific origins.
+    allowedOrigins: ['*']
+    # Sets the Access-Control-Expose-Headers header.
+    exposedHeaders: false
+    # Sets the Access-Control-Max-Age header.
+    maxAge: false
+    # Sets the Access-Control-Allow-Credentials header.
+    supportsCredentials: false
+EOF
+sudo cp /tmp/services.yml /vagrant/web/sites/default/services.yml >> /vagrant/provision.log 2>&1
 
 echo ">>> Installing Drupal 8."
 cd /vagrant >> /vagrant/provision.log 2>&1
